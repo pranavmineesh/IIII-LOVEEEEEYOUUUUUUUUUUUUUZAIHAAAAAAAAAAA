@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaiha 💖 My Valentine</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 400px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2.5em;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 25px;
+      border-radius: 25px;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #ff2e63;
+      color: white;
+    }
+
+    .no {
+      background: white;
+      color: #ff2e63;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.2em;
+      min-height: 40px;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 24px;
+      animation: floatUp 5s linear forwards;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Zaiha 💕</h1>
+
+    <p>
+      You make my days brighter and my heart happier.<br><br>
+      So I wanted to ask you something special…
+    </p>
+
+    <h2>Will you be my Valentine? 💌</h2>
+
+    <button class="yes" onclick="yesClicked()">Yes 💖</button>
+    <button class="no" onclick="noClicked()">No 😅</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function yesClicked() {
+      document.getElementById("message").innerHTML =
+        "You just made me the happiest person ever 💘";
+      hearts();
+    }
+
+    function noClicked() {
+      document.getElementById("message").innerHTML =
+        "Nice try 😏 That’s not an option.";
+    }
+
+    function hearts() {
+      for (let i = 0; i < 25; i++) {
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.innerHTML = "❤️";
+        h.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(h);
+
+        setTimeout(() => h.remove(), 5000);
+      }
+    }
+  </script>
+
+</body>
+</html>
